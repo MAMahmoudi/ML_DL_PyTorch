@@ -19,7 +19,7 @@ class AlexNet(nn.Module):
         self.dropout1 = nn.Dropout(0.5)
         self.fc2 = nn.Linear(in_features=4096, out_features=4096)
         self.dropout2 = nn.Dropout(0.5)
-        self.fc3 = nn.Linear(in_features=4096, out_features=1000)
+        self.fc3 = nn.Linear(in_features=4096, out_features=1)
 
     def forward(self, image):
         # get the batch size, channels, height and width
