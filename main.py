@@ -6,16 +6,20 @@ import torch
 from sklearn import metrics
 from sklearn.model_selection import train_test_split
 
-from src.data import make_dataset
+from src.data import Classification_Dataset
 from src.models import train_model
 from src.models import predict_model
 from src.models.AlexNet import AlexNet
 
 if __name__ == "__main__":
     Data_Path = "C:/Users/Mahmoudi/Documents/ENSIA/My_Projects/DL/Learning_Computer_Vision/data/external/ISIC 2024 - Skin Cancer Detection with 3D-TBP/isic-2024-challenge/train-image/image"
+    DataSets = {
+        "isic-2024-challenge" : "isic-2024-challenge/train-image/image",
+
+    }
     Device = "cuda"
     epochs = 10
-
+"""
     DataFrame = pd.read_csv("C:/Users/Mahmoudi/Documents/ENSIA/My_Projects/DL/Learning_Computer_Vision/data/external/ISIC 2024 - Skin Cancer Detection with 3D-TBP/isic-2024-challenge/train-metadata.csv", low_memory=False)
     Images = DataFrame.isic_id.values.tolist()
     Images = [os.path.join(Data_Path, Image_Name + ".jpg") for Image_Name in Images]
@@ -38,3 +42,4 @@ if __name__ == "__main__":
         Predictions, Valid_Labels = predict_model.evaluate(Valid_Loader, AlexNet, Device=Device)
         roc_auc = metrics.roc_auc_score(Valid_Labels, Predictions)
         print(f"Epoch: {epoch + 1}, Valid ROC AUC={roc_auc}")
+"""
